@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmhfgmp62uc0u"
+path="res://.godot/imported/Lightless Dawn.mp3-2e45e0b9a296db74142604399ebd0ee0.mp3str"
+
+[deps]
+
+source_file="res://music/incompetech (kevin mcleod)/Lightless Dawn.mp3"
+dest_files=["res://.godot/imported/Lightless Dawn.mp3-2e45e0b9a296db74142604399ebd0ee0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

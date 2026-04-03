@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://fln2psd1yjh1"]
+
+[ext_resource type="Script" uid="uid://o16qs7wyh5pg" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://bw20pblal0v44" path="res://art/white.png" id="2_lbhrr"]
+[ext_resource type="Script" uid="uid://btrqi4lnxybta" path="res://scripts/rendering/grid_renderer.gd" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://78gb00n8ion5" path="res://scripts/backdrop.gd" id="3_iywne"]
+[ext_resource type="Script" uid="uid://d1vlp30sh7kh3" path="res://scripts/preview_renderer.gd" id="3_lnu2h"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lnu2h"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(900, 5, 5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(14, -144, 0)
+scale_max = 10.42
+turbulence_enabled = true
+turbulence_noise_strength = 2.25
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_uwrxv")
+
+[node name="backdrop" type="Sprite2D" parent="."]
+modulate = Color(0.0745098, 0.054902, 0.0980392, 1)
+position = Vector2(574.02, 322.375)
+scale = Vector2(35.9988, 20.2266)
+texture = ExtResource("2_lbhrr")
+script = ExtResource("3_iywne")
+colors = Array[Color]([Color(0.447438, 0.199888, 0.220396, 1), Color(0.570319, 0.577735, 0.181183, 1), Color(0.0731653, 0.347076, 0.509744, 1), Color(0.154876, 0.154876, 0.154876, 1)])
+transition_time = 30.0
+transition_time_fudge = 5.0
+
+[node name="background_particle" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.121569)
+position = Vector2(450, 650)
+amount = 200
+lifetime = 12.0
+process_material = SubResource("ParticleProcessMaterial_lnu2h")
+
+[node name="renderer" type="Node2D" parent="."]
+script = ExtResource("2_lnu2h")
+
+[node name="preview_renderer" type="Node2D" parent="."]
+script = ExtResource("3_lnu2h")

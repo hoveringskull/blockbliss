@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cpu30le1lynsd"
+path="res://.godot/imported/Coin 5.wav-be9632490dfeb8d08aa6c86df1a558ac.sample"
+
+[deps]
+
+source_file="res://sfx/8-bit Sound Effects Pack 001 by @shades/Coin 5.wav"
+dest_files=["res://.godot/imported/Coin 5.wav-be9632490dfeb8d08aa6c86df1a558ac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,15 @@
+[gd_scene load_steps=10 format=3 uid="uid://1e8upbix8tdr"]
+
+[ext_resource type="Script" uid="uid://k2g8har1n8t" path="res://scripts/services/shape_library.gd" id="1_vqj0q"]
+[ext_resource type="Script" uid="uid://ciat0m1hxwvsa" path="res://scripts/resources/shape_resource.gd" id="2_g7ukk"]
+[ext_resource type="Resource" uid="uid://diqr1iwl1qyeb" path="res://content/shapes/long.tres" id="3_ingjt"]
+[ext_resource type="Resource" uid="uid://xumrblpioele" path="res://content/shapes/left_l.tres" id="3_x56pv"]
+[ext_resource type="Resource" uid="uid://dmckkxc2f2r37" path="res://content/shapes/left_zig.tres" id="4_b6nfl"]
+[ext_resource type="Resource" uid="uid://73n23id3ws2n" path="res://content/shapes/square.tres" id="4_x07xo"]
+[ext_resource type="Resource" uid="uid://dfgrqocrd4cee" path="res://content/shapes/right_l.tres" id="6_kixj3"]
+[ext_resource type="Resource" uid="uid://dx43b3mxnleus" path="res://content/shapes/right_zig.tres" id="7_7l224"]
+[ext_resource type="Resource" uid="uid://x7cata8fpfpy" path="res://content/shapes/triangle.tres" id="9_ofnkh"]
+
+[node name="shape_library" type="Node"]
+script = ExtResource("1_vqj0q")
+shapes = Array[ExtResource("2_g7ukk")]([ExtResource("3_x56pv"), ExtResource("4_b6nfl"), ExtResource("3_ingjt"), ExtResource("6_kixj3"), ExtResource("7_7l224"), ExtResource("4_x07xo"), ExtResource("9_ofnkh")])

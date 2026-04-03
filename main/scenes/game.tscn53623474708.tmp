@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://fln2psd1yjh1"]
+
+[ext_resource type="Script" uid="uid://o16qs7wyh5pg" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://btrqi4lnxybta" path="res://scripts/rendering/grid_renderer.gd" id="2_lnu2h"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_uwrxv")
+
+[node name="renderer" type="Node2D" parent="."]
+script = ExtResource("2_lnu2h")

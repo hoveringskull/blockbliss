@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqve7gntkmtuh"
+path="res://.godot/imported/Jump 4.wav-d7e7e88576fe42a32220ca0525c887ba.sample"
+
+[deps]
+
+source_file="res://sfx/8-bit Sound Effects Pack 001 by @shades/Jump 4.wav"
+dest_files=["res://.godot/imported/Jump 4.wav-d7e7e88576fe42a32220ca0525c887ba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

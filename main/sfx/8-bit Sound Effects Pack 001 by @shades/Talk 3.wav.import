@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7y1khnj8w82l"
+path="res://.godot/imported/Talk 3.wav-8db2e67faa35513ad1ec137e04bbec39.sample"
+
+[deps]
+
+source_file="res://sfx/8-bit Sound Effects Pack 001 by @shades/Talk 3.wav"
+dest_files=["res://.godot/imported/Talk 3.wav-8db2e67faa35513ad1ec137e04bbec39.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

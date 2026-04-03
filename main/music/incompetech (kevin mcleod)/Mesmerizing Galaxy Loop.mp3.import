@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sb6y3ppvswsi"
+path="res://.godot/imported/Mesmerizing Galaxy Loop.mp3-831a72fdec2a1d89f3432e07ff5ebaf3.mp3str"
+
+[deps]
+
+source_file="res://music/incompetech (kevin mcleod)/Mesmerizing Galaxy Loop.mp3"
+dest_files=["res://.godot/imported/Mesmerizing Galaxy Loop.mp3-831a72fdec2a1d89f3432e07ff5ebaf3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

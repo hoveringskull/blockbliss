@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ShapeResource" load_steps=2 format=3 uid="uid://dmckkxc2f2r37"]
+
+[ext_resource type="Script" uid="uid://ciat0m1hxwvsa" path="res://scripts/resources/shape_resource.gd" id="1_3datw"]
+
+[resource]
+script = ExtResource("1_3datw")
+tiles = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 1), Vector2i(-1, 1), Vector2i(1, 0)])
+color = 2
+metadata/_custom_type_script = "uid://ciat0m1hxwvsa"

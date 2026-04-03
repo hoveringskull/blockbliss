@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce5f4p833002q"]
+
+[ext_resource type="Texture2D" uid="uid://bspu17ato11n3" path="res://art/block.png" id="1_08nsu"]
+
+[node name="block_renderer" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_08nsu")
+offset = Vector2(8, 8)

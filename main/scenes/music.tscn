@@ -1,0 +1,15 @@
+[gd_scene load_steps=8 format=3 uid="uid://c30yg8exb6yq5"]
+
+[ext_resource type="Script" uid="uid://g0x22syx8iwj" path="res://scripts/services/music.gd" id="1_05ggv"]
+[ext_resource type="AudioStream" uid="uid://tkeuxr42oxmr" path="res://music/incompetech (kevin mcleod)/Beauty Flow.mp3" id="2_ejojg"]
+[ext_resource type="AudioStream" uid="uid://dmhfgmp62uc0u" path="res://music/incompetech (kevin mcleod)/Lightless Dawn.mp3" id="3_keplp"]
+[ext_resource type="AudioStream" uid="uid://bpiub1glgtw8w" path="res://music/incompetech (kevin mcleod)/Cloud Dancer.mp3" id="3_mobtd"]
+[ext_resource type="AudioStream" uid="uid://nspvl4gnpxhg" path="res://music/incompetech (kevin mcleod)/Cyborg Ninja.mp3" id="4_keplp"]
+[ext_resource type="AudioStream" uid="uid://bauq6svum47p7" path="res://music/incompetech (kevin mcleod)/Galactic Rap.mp3" id="5_d6bcn"]
+[ext_resource type="AudioStream" uid="uid://sb6y3ppvswsi" path="res://music/incompetech (kevin mcleod)/Mesmerizing Galaxy Loop.mp3" id="6_okdju"]
+
+[node name="music" type="AudioStreamPlayer2D"]
+script = ExtResource("1_05ggv")
+menu_track = ExtResource("2_ejojg")
+loss_track = ExtResource("3_keplp")
+game_tracks = Array[AudioStream]([ExtResource("3_mobtd"), ExtResource("4_keplp"), ExtResource("5_d6bcn"), ExtResource("6_okdju")])

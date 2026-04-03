@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c02ev23v8tgbl"]
+
+[ext_resource type="Texture2D" uid="uid://cymtjfhxish04" path="res://art/blank.png" id="1_1t1rp"]
+
+[node name="grid_cell_renderer" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_1t1rp")
+offset = Vector2(8, 8)

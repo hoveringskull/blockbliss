@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cr1hk1qkxcgqb"
+path="res://.godot/imported/Noise Select 2.wav-b34606dff73d168f4d40934c39c3f154.sample"
+
+[deps]
+
+source_file="res://sfx/8-bit Sound Effects Pack 001 by @shades/Noise Select 2.wav"
+dest_files=["res://.godot/imported/Noise Select 2.wav-b34606dff73d168f4d40934c39c3f154.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

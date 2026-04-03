@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://pkei7ttufln5"]
+
+[ext_resource type="Script" uid="uid://wximp8qje03u" path="res://scripts/services/sfx.gd" id="1_agiar"]
+[ext_resource type="AudioStream" uid="uid://b4ablvqa2xm85" path="res://sfx/8-bit Sound Effects Pack 001 by @shades/Coin 3.wav" id="2_agiar"]
+[ext_resource type="AudioStream" uid="uid://uw0ngi1pkmrr" path="res://sfx/8-bit Sound Effects Pack 001 by @shades/Hit 6.wav" id="3_g4ugh"]
+[ext_resource type="AudioStream" uid="uid://dlhy7r7kcpsft" path="res://sfx/8-bit Sound Effects Pack 001 by @shades/Powerup 1.wav" id="4_agiar"]
+
+[node name="sfx" type="AudioStreamPlayer2D"]
+script = ExtResource("1_agiar")
+sounds = Array[AudioStream]([ExtResource("2_agiar"), ExtResource("3_g4ugh"), ExtResource("4_agiar")])

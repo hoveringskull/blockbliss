@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://kktikhctynhb"]
+
+[ext_resource type="Texture2D" uid="uid://eteslni4oc5m" path="res://art/preview.png" id="1_vomwj"]
+
+[node name="preview_renderer" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_vomwj")
+offset = Vector2(8, 8)
