@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Tetgd"
+config/name="BLOCKBLISS"
 run/main_scene="uid://fln2psd1yjh1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
