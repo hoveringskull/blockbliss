@@ -25,8 +25,8 @@ func handle_request_start_game() -> void:
 	Music.play_game_track()
 	has_emitted_loss = false
 	game_state = GameState.new()
-	game_state.initialize()
-	game_state.start()
+	GameController.initialize()
+	GameController.start()
 
 	renderer.initialize()
 	renderer.update()
@@ -34,14 +34,14 @@ func handle_request_start_game() -> void:
 func _process(delta: float) -> void:
 	if game_state:
 		if Input.is_action_just_pressed("pause"):
-			game_state.toggle_pause()
+			GameController.toggle_pause()
 		
 		if game_state.status == GameState.GAME_STATUS.ACTIVE:
 			# todo: allow holding down
 			if Input.is_action_pressed("right"):
-				game_state.move_active_blocks(Vector2i(1, 0))
+				GridController.move_active_blocks(Vector2i(1, 0))
 			elif Input.is_action_pressed("left"):
-				game_state.move_active_blocks(Vector2i(-1, 0))
+				GridController.move_active_blocks(Vector2i(-1, 0))
 
 			if Input.is_action_pressed("down"):
 				game_state.speed_up = true
@@ -49,9 +49,9 @@ func _process(delta: float) -> void:
 				game_state.speed_up = false
 
 			if Input.is_action_just_pressed("up"):
-				game_state.rotate_active_blocks()
+				GridController.rotate_active_blocks()
 
-			game_state.update(delta)
+			GameController.update(delta)
 			renderer.update()
 		elif game_state.status == GameState.GAME_STATUS.LOST and has_emitted_loss == false:
 			Events.on_game_lost.emit()

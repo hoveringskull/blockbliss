@@ -55,8 +55,8 @@ func update() -> void:
 	# otherwise, removes, recolors, or creates it
 	
 	if game_state.current_active_shape:
-		var percentage_of_next_row_dropped: float = (game_state.active_time - game_state.last_drop_time) / game_state.get_total_gravity() 
-		var grounded: bool = game_state.is_current_shape_touching_ground()
+		var percentage_of_next_row_dropped: float = (game_state.active_time - game_state.last_drop_time) / game_state.total_gravity 
+		var grounded: bool = GridController.is_current_shape_touching_ground()
 		
 		# create new dropping tile_renderers
 		if dropping_tile_renderers.size() != game_state.current_active_shape.tiles.size():

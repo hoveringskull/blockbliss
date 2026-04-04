@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 
 func render() -> void:
 	# todo: maybe update movement rahter than clear and rerender for performance
-	for tile_address: Vector2i in game_state.get_drop_preview_tiles():
+	for tile_address: Vector2i in GridController.get_drop_preview_tiles():
 		var preview_tile: Sprite2D = preview_renderer_tile.instantiate()
 		add_child(preview_tile)
 		preview_tile.position = Grid.address_to_position(tile_address)
