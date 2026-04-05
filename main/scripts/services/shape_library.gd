@@ -1,4 +1,4 @@
-extends Node
+class_name ShapeLibrary extends Node
 
 @export
 var shapes: Array[ShapeResource]

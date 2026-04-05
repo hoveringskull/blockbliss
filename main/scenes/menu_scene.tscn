@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://btjlhieh2wt34"]
+
+[ext_resource type="Script" uid="uid://crebcftmrbgpn" path="res://scripts/menu_context.gd" id="1_vrre2"]
+[ext_resource type="PackedScene" uid="uid://cosdywv15dqc2" path="res://scenes/overlay_main_menu.tscn" id="2_o71fo"]
+
+[node name="MenuScene" type="Node2D" node_paths=PackedStringArray("overlay")]
+script = ExtResource("1_vrre2")
+overlay = NodePath("CanvasLayer/overlay")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="overlay" parent="CanvasLayer" instance=ExtResource("2_o71fo")]

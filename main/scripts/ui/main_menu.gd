@@ -1,11 +1,23 @@
-extends PanelContainer
+class_name MainMenu extends PanelContainer
+
+signal request_start_game
+signal request_quit
+signal request_scores
 
 @export var start_button: Button
 @export var scores_button: Button
 @export var quit_button: Button
 
-func _ready() -> void:
+var _music: MusicPlayer
+var _sfx: SFXPlayer
+	
+func initialize(music: MusicPlayer, sfx: SFXPlayer) -> void:
+	bind_services(music, sfx)
 	bind_events()
+	
+func bind_services(music: MusicPlayer, sfx: SFXPlayer) -> void:
+	_music = music
+	_sfx = sfx	
 
 func bind_events() -> void:
 	start_button.pressed.connect(on_press_start)
@@ -18,26 +30,25 @@ func bind_events() -> void:
 	Events.request_dismiss_loss.connect(show_menu)
 	Events.request_dismiss_highscores.connect(show_menu)
 	
-	@warning_ignore("unsafe_method_access")
-	Music.play_menu_track()
+	_music.play_menu_track()
 
 
 func on_press_start() -> void:
-	@warning_ignore("unsafe_method_access")
-	Sfx.request_sound(SFX.Key.SELECT)
-	Events.request_start_game.emit()
+	_sfx.request_sound(SFXPlayer.Key.SELECT)
+	request_start_game.emit()
 
 func on_press_scores() -> void:
-	Events.request_menu_scores.emit()
+	_sfx.request_sound(SFXPlayer.Key.SELECT)
+	request_scores.emit()
 	hide()
 
 func on_press_quit() -> void:
-	Events.request_quit.emit()
+	_sfx.request_sound(SFXPlayer.Key.SELECT)
+	request_quit.emit()
 
 func hide_menu() -> void:
 	visible = false
 	
 func show_menu() -> void:
 	visible = true
-	@warning_ignore("unsafe_method_access")
-	Music.play_menu_track()
+	_music.play_menu_track()

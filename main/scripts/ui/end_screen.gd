@@ -1,4 +1,4 @@
-extends PanelContainer
+class_name EndScreen extends PanelContainer
 
 const MAX_NAME_INPUT: int = 10
 
@@ -6,9 +6,16 @@ const MAX_NAME_INPUT: int = 10
 @export var score: Label
 @export var name_input: LineEdit
 
-func _ready() -> void:
+var _high_scores: HighScores
+
+
+func initialize(high_scores: HighScores) -> void:
 	bind_events()
-	visible = false
+	bind_services(high_scores)
+	hide()
+
+func bind_services(high_scores: HighScores) -> void:
+	_high_scores = high_scores
 
 func bind_events() -> void:
 	Events.on_game_lost.connect(handle_game_lost)
@@ -21,5 +28,5 @@ func handle_game_lost() -> void:
 
 func dismiss_loss() -> void:
 	visible = false
-	HighScores.add_score(HighScore.new(name_input.text.substr(0, MAX_NAME_INPUT), GameStateHolder.game_state.score))
+	_high_scores.add_score(HighScore.new(name_input.text.substr(0, MAX_NAME_INPUT), GameStateHolder.game_state.score))
 	Events.request_dismiss_loss.emit()

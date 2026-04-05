@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://fln2psd1yjh1"]
+[gd_scene load_steps=7 format=3 uid="uid://fln2psd1yjh1"]
 
-[ext_resource type="Script" uid="uid://cs86v4vy71j0c" path="res://scripts/root_context.gd" id="1_iywne"]
-[ext_resource type="PackedScene" uid="uid://hc6wha2iupp6" path="res://scenes/game_scene.tscn" id="2_iywne"]
+[ext_resource type="Script" uid="uid://o16qs7wyh5pg" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bw20pblal0v44" path="res://art/white.png" id="2_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://btjlhieh2wt34" path="res://scenes/menu_scene.tscn" id="2_p57ef"]
+[ext_resource type="Script" uid="uid://btrqi4lnxybta" path="res://scripts/rendering/grid_renderer.gd" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://78gb00n8ion5" path="res://scripts/backdrop.gd" id="3_iywne"]
-[ext_resource type="PackedScene" uid="uid://c30yg8exb6yq5" path="res://scenes/music.tscn" id="4_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://pkei7ttufln5" path="res://scenes/sfx.tscn" id="5_gee14"]
-[ext_resource type="PackedScene" uid="uid://day4swvj338re" path="res://scenes/camera.tscn" id="6_gee14"]
+[ext_resource type="Script" uid="uid://d1vlp30sh7kh3" path="res://scripts/preview_renderer.gd" id="3_lnu2h"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lnu2h"]
 resource_local_to_scene = true
@@ -20,13 +17,9 @@ scale_max = 10.42
 turbulence_enabled = true
 turbulence_noise_strength = 2.25
 
-[node name="game" type="Node2D"]
-script = ExtResource("1_iywne")
-menu_scene_packed = ExtResource("2_p57ef")
-game_scene_packed = ExtResource("2_iywne")
-music_player_packed = ExtResource("4_u5sy4")
-sfx_player_packed = ExtResource("5_gee14")
-camera_packed = ExtResource("6_gee14")
+[node name="game" type="Node2D" node_paths=PackedStringArray("renderer")]
+script = ExtResource("1_uwrxv")
+renderer = NodePath("renderer")
 
 [node name="backdrop" type="Sprite2D" parent="."]
 modulate = Color(0.0745098, 0.054902, 0.0980392, 1)
@@ -44,3 +37,9 @@ position = Vector2(450, 650)
 amount = 200
 lifetime = 12.0
 process_material = SubResource("ParticleProcessMaterial_lnu2h")
+
+[node name="renderer" type="Node2D" parent="."]
+script = ExtResource("2_lnu2h")
+
+[node name="preview_renderer" type="Node2D" parent="."]
+script = ExtResource("3_lnu2h")

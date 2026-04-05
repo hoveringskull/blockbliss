@@ -7,11 +7,16 @@ var destroy_tile_renderer_particles: PackedScene = preload("res://scenes/destroy
 var rendered_tile_renderers: Array[Sprite2D]
 var dropping_tile_renderers: Array[Sprite2D]
 
+var _grid_controller: GridController
+
 var game_state: GameState:
 	get: return GameStateHolder.game_state
 
 func _ready() -> void:
 	Events.on_row_clear.connect(generate_clear_particles)
+
+func bind_services(grid_controller: GridController) -> void:
+	_grid_controller = grid_controller
 
 func initialize() -> void:
 	position = Vector2((get_window().size.x / 2.0) - (GameConstants.WIDTH * GameConstants.TILE_SIZE / 2.0), GameConstants.TILE_SIZE / 2.0)
@@ -56,7 +61,7 @@ func update() -> void:
 	
 	if game_state.current_active_shape:
 		var percentage_of_next_row_dropped: float = (game_state.active_time - game_state.last_drop_time) / game_state.total_gravity 
-		var grounded: bool = GridController.is_current_shape_touching_ground()
+		var grounded: bool = _grid_controller.is_current_shape_touching_ground()
 		
 		# create new dropping tile_renderers
 		if dropping_tile_renderers.size() != game_state.current_active_shape.tiles.size():

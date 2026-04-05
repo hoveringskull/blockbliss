@@ -1,4 +1,4 @@
-extends AudioStreamPlayer2D
+class_name MusicPlayer extends AudioStreamPlayer2D
 
 @export var menu_track: AudioStream
 @export var loss_track: AudioStream

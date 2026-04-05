@@ -1,16 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://7p2ehmwmivvg"]
+[gd_scene load_steps=7 format=3 uid="uid://cosdywv15dqc2"]
 
-[ext_resource type="Script" uid="uid://bl6yjxqymv6bq" path="res://scripts/ui/main_menu.gd" id="1_d607a"]
-[ext_resource type="Script" uid="uid://dg7lbr1wkxxsn" path="res://scripts/ui/score_box.gd" id="2_r2eog"]
-[ext_resource type="Theme" uid="uid://cl1waixbnwnmx" path="res://theme.tres" id="2_sfd0e"]
-[ext_resource type="FontFile" uid="uid://8i27bnsam3lf" path="res://fonts/basis33/basis33.ttf" id="4_cpe4y"]
-[ext_resource type="Script" uid="uid://dbf35mgdtb6jc" path="res://scripts/ui/end_screen.gd" id="4_p5j10"]
-[ext_resource type="Script" uid="uid://de0kokxb1x42b" path="res://scripts/ui/high_scores_menu.gd" id="5_0miq5"]
-[ext_resource type="Script" uid="uid://bgink1id4gwi4" path="res://scripts/ui/next_piece_renderer.gd" id="6_nx175"]
-[ext_resource type="Texture2D" uid="uid://cymtjfhxish04" path="res://art/blank.png" id="7_lhcu8"]
-[ext_resource type="Texture2D" uid="uid://bspu17ato11n3" path="res://art/block.png" id="8_cpe4y"]
+[ext_resource type="Script" uid="uid://pdrpv7him1ur" path="res://scripts/ui/menu_overlay.gd" id="1_ck0ms"]
+[ext_resource type="Script" uid="uid://bl6yjxqymv6bq" path="res://scripts/ui/main_menu.gd" id="1_nn6e8"]
+[ext_resource type="Theme" uid="uid://cl1waixbnwnmx" path="res://theme.tres" id="2_s47xe"]
+[ext_resource type="Script" uid="uid://dbf35mgdtb6jc" path="res://scripts/ui/end_screen.gd" id="3_6gq44"]
+[ext_resource type="FontFile" uid="uid://8i27bnsam3lf" path="res://fonts/basis33/basis33.ttf" id="4_a2m1e"]
+[ext_resource type="Script" uid="uid://de0kokxb1x42b" path="res://scripts/ui/high_scores_menu.gd" id="5_wdrv5"]
 
-[node name="overlay" type="Control"]
+[node name="overlay" type="Control" node_paths=PackedStringArray("main_menu", "high_scores_menu", "end_screen")]
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
@@ -20,6 +17,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_ck0ms")
+main_menu = NodePath("main_menu")
+high_scores_menu = NodePath("high_scores_menu")
+end_screen = NodePath("end_screen")
 
 [node name="main_menu" type="PanelContainer" parent="." node_paths=PackedStringArray("start_button", "scores_button", "quit_button")]
 layout_mode = 1
@@ -34,14 +35,14 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_d607a")
+script = ExtResource("1_nn6e8")
 start_button = NodePath("layout_margin/layout_options/start")
 scores_button = NodePath("layout_margin/layout_options/scores")
 quit_button = NodePath("layout_margin/layout_options/quit")
 
 [node name="layout_margin" type="MarginContainer" parent="main_menu"]
 layout_mode = 2
-theme = ExtResource("2_sfd0e")
+theme = ExtResource("2_s47xe")
 
 [node name="layout_options" type="VBoxContainer" parent="main_menu/layout_margin"]
 layout_mode = 2
@@ -80,14 +81,14 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("4_p5j10")
+script = ExtResource("3_6gq44")
 dismiss_button = NodePath("layout_margin/layout_v/dismiss_button")
 score = NodePath("layout_margin/layout_v/HBoxContainer/label_score")
 name_input = NodePath("layout_margin/layout_v/name_input")
 
 [node name="layout_margin" type="MarginContainer" parent="end_screen"]
 layout_mode = 2
-theme = ExtResource("2_sfd0e")
+theme = ExtResource("2_s47xe")
 
 [node name="layout_v" type="VBoxContainer" parent="end_screen/layout_margin"]
 layout_mode = 2
@@ -112,12 +113,12 @@ text = "120032"
 [node name="name_input" type="LineEdit" parent="end_screen/layout_margin/layout_v"]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_cpe4y")
+theme_override_fonts/font = ExtResource("4_a2m1e")
 placeholder_text = "Your name here..."
 
 [node name="dismiss_button" type="Button" parent="end_screen/layout_margin/layout_v"]
 layout_mode = 2
-theme = ExtResource("2_sfd0e")
+theme = ExtResource("2_s47xe")
 text = "Save Score and Return To Menu"
 
 [node name="high_scores_menu" type="PanelContainer" parent="." node_paths=PackedStringArray("back_button", "scores_parent")]
@@ -134,13 +135,13 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_0miq5")
+script = ExtResource("5_wdrv5")
 back_button = NodePath("layout_margin/layout_v/dismiss")
 scores_parent = NodePath("layout_margin/layout_v/scores_parent")
 
 [node name="layout_margin" type="MarginContainer" parent="high_scores_menu"]
 layout_mode = 2
-theme = ExtResource("2_sfd0e")
+theme = ExtResource("2_s47xe")
 
 [node name="layout_v" type="VBoxContainer" parent="high_scores_menu/layout_margin"]
 layout_mode = 2
@@ -159,55 +160,3 @@ text = "jim ..... 00000500"
 [node name="dismiss" type="Button" parent="high_scores_menu/layout_margin/layout_v"]
 layout_mode = 2
 text = "Back"
-
-[node name="right_bar" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -166.0
-offset_bottom = 55.0
-grow_horizontal = 0
-
-[node name="score_box" type="PanelContainer" parent="right_bar" node_paths=PackedStringArray("score_display_label")]
-layout_mode = 2
-script = ExtResource("2_r2eog")
-score_display_label = NodePath("layout_margin/layout_h/score")
-
-[node name="layout_margin" type="MarginContainer" parent="right_bar/score_box"]
-custom_minimum_size = Vector2(0.72, 0)
-layout_mode = 2
-theme = ExtResource("2_sfd0e")
-
-[node name="layout_h" type="HBoxContainer" parent="right_bar/score_box/layout_margin"]
-layout_mode = 2
-
-[node name="label" type="Label" parent="right_bar/score_box/layout_margin/layout_h"]
-layout_mode = 2
-text = "SCORE:"
-
-[node name="score" type="Label" parent="right_bar/score_box/layout_margin/layout_h"]
-layout_mode = 2
-text = "00000000"
-
-[node name="next_piece" type="PanelContainer" parent="right_bar" node_paths=PackedStringArray("piece_frame")]
-layout_mode = 2
-script = ExtResource("6_nx175")
-piece_frame = NodePath("layout_margin/layout_v/sprite_frame")
-empty_cell_sprite = ExtResource("7_lhcu8")
-tile_sprite = ExtResource("8_cpe4y")
-
-[node name="layout_margin" type="MarginContainer" parent="right_bar/next_piece"]
-layout_mode = 2
-theme = ExtResource("2_sfd0e")
-
-[node name="layout_v" type="VBoxContainer" parent="right_bar/next_piece/layout_margin"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="right_bar/next_piece/layout_margin/layout_v"]
-layout_mode = 2
-text = "NEXT PIECE"
-
-[node name="sprite_frame" type="PanelContainer" parent="right_bar/next_piece/layout_margin/layout_v"]
-custom_minimum_size = Vector2(128, 156)
-layout_mode = 2

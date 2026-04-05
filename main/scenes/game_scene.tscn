@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://hc6wha2iupp6"]
+
+[ext_resource type="Script" uid="uid://feoi4ko1a4xj" path="res://scripts/game_context.gd" id="1_w5aja"]
+[ext_resource type="PackedScene" uid="uid://1e8upbix8tdr" path="res://scenes/shape_library.tscn" id="2_y3j0m"]
+[ext_resource type="Script" uid="uid://btrqi4lnxybta" path="res://scripts/rendering/grid_renderer.gd" id="2_ycayy"]
+[ext_resource type="Script" uid="uid://d1vlp30sh7kh3" path="res://scripts/preview_renderer.gd" id="3_bw6k5"]
+[ext_resource type="PackedScene" uid="uid://7p2ehmwmivvg" path="res://scenes/overlay_game.tscn" id="4_bw6k5"]
+
+[node name="GameScene" type="Node2D" node_paths=PackedStringArray("renderer", "preview_renderer")]
+script = ExtResource("1_w5aja")
+renderer = NodePath("renderer")
+preview_renderer = NodePath("preview_renderer")
+shape_library_packed = ExtResource("2_y3j0m")
+
+[node name="renderer" type="Node2D" parent="."]
+script = ExtResource("2_ycayy")
+
+[node name="preview_renderer" type="Node2D" parent="."]
+script = ExtResource("3_bw6k5")
+
+[node name="overlay" parent="." instance=ExtResource("4_bw6k5")]

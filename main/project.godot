@@ -17,17 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Overlay="*res://scenes/overlay.tscn"
 Events="*res://scripts/services/events.gd"
-ShapeLibrary="*res://scenes/shape_library.tscn"
-HighScores="*res://scripts/services/high_scores.gd"
-Camera="*res://scenes/camera.tscn"
 GameStateHolder="*res://scripts/services/game_state_holder.gd"
-Sfx="*res://scenes/sfx.tscn"
-Music="*res://scenes/music.tscn"
-GameController="*res://scripts/services/game_controller.gd"
-GridController="*res://scripts/services/grid_controller.gd"
-ScoreController="*res://scripts/services/score_controller.gd"
 
 [debug]
 

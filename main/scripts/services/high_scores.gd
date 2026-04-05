@@ -1,4 +1,4 @@
-extends Node
+class_name HighScores extends Node
 
 const TOP_SCORE_COUNT: int = 3
 var scores: Array[HighScore]

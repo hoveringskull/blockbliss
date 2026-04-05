@@ -1,7 +1,21 @@
-extends Node
+class_name GridController extends Node
+
+var _score_controller: ScoreController
+var _game_state_holder: GameStateHolder
+var _shape_library: ShapeLibrary
+var _sfx: SFXPlayer
 
 var state: GameState:
 	get: return GameStateHolder.game_state
+	
+func bind_services(score_controller: ScoreController,\
+		game_state_holder: GameStateHolder,\
+		shape_library: ShapeLibrary,
+		sfx: SFXPlayer) -> void:
+	_score_controller = score_controller
+	_game_state_holder = game_state_holder
+	_shape_library = shape_library
+	_sfx = sfx
 
 func move_active_blocks(direction: Vector2i) -> void:
 	if can_move_active_blocks(direction):
@@ -79,7 +93,7 @@ func generate_new_active_tile_shape() -> void:
 	state.current_active_shape = state.next_active_shape
 	@warning_ignore("unsafe_method_access")
 	@warning_ignore("unsafe_cast")
-	var shape: ShapeResource = ShapeLibrary.get_random_shape() as ShapeResource
+	var shape: ShapeResource = _shape_library.get_random_shape() as ShapeResource
 	if shape:
 		state.next_active_shape = Shape.new(Vector2i(5, 0), shape)
 		Events.on_new_next_shape.emit()
@@ -93,7 +107,7 @@ func check_and_clear_rows() -> void:
 	for i: int in range(0, GameConstants.HEIGHT):
 		if can_clear_row(i):
 			@warning_ignore("unsafe_method_access")
-			Sfx.request_sound(SFX.Key.CLEAR)
+			_sfx.request_sound(SFXPlayer.Key.CLEAR)
 			clear_row(i)
 
 func clear_row(row: int) -> void:
@@ -111,4 +125,4 @@ func clear_row(row: int) -> void:
 		state.grid.append(value)
 	
 	# add score
-	ScoreController.add_score(100)
+	_score_controller.add_score(100)

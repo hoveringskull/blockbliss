@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://7p2ehmwmivvg"]
+
+[ext_resource type="Script" uid="uid://dg7lbr1wkxxsn" path="res://scripts/ui/score_box.gd" id="2_r2eog"]
+[ext_resource type="Theme" uid="uid://cl1waixbnwnmx" path="res://theme.tres" id="2_sfd0e"]
+[ext_resource type="Script" uid="uid://bgink1id4gwi4" path="res://scripts/ui/next_piece_renderer.gd" id="6_nx175"]
+[ext_resource type="Texture2D" uid="uid://cymtjfhxish04" path="res://art/blank.png" id="7_lhcu8"]
+[ext_resource type="Texture2D" uid="uid://bspu17ato11n3" path="res://art/block.png" id="8_cpe4y"]
+
+[node name="overlay" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="right_bar" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_bottom = 55.0
+grow_horizontal = 0
+
+[node name="score_box" type="PanelContainer" parent="right_bar" node_paths=PackedStringArray("score_display_label")]
+layout_mode = 2
+script = ExtResource("2_r2eog")
+score_display_label = NodePath("layout_margin/layout_h/score")
+
+[node name="layout_margin" type="MarginContainer" parent="right_bar/score_box"]
+custom_minimum_size = Vector2(0.72, 0)
+layout_mode = 2
+theme = ExtResource("2_sfd0e")
+
+[node name="layout_h" type="HBoxContainer" parent="right_bar/score_box/layout_margin"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="right_bar/score_box/layout_margin/layout_h"]
+layout_mode = 2
+text = "SCORE:"
+
+[node name="score" type="Label" parent="right_bar/score_box/layout_margin/layout_h"]
+layout_mode = 2
+text = "00000000"
+
+[node name="next_piece" type="PanelContainer" parent="right_bar" node_paths=PackedStringArray("piece_frame")]
+layout_mode = 2
+script = ExtResource("6_nx175")
+piece_frame = NodePath("layout_margin/layout_v/sprite_frame")
+empty_cell_sprite = ExtResource("7_lhcu8")
+tile_sprite = ExtResource("8_cpe4y")
+
+[node name="layout_margin" type="MarginContainer" parent="right_bar/next_piece"]
+layout_mode = 2
+theme = ExtResource("2_sfd0e")
+
+[node name="layout_v" type="VBoxContainer" parent="right_bar/next_piece/layout_margin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="right_bar/next_piece/layout_margin/layout_v"]
+layout_mode = 2
+text = "NEXT PIECE"
+
+[node name="sprite_frame" type="PanelContainer" parent="right_bar/next_piece/layout_margin/layout_v"]
+custom_minimum_size = Vector2(128, 156)
+layout_mode = 2

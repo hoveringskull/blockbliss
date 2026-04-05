@@ -1,7 +1,7 @@
 extends Node
 
 @warning_ignore("unused_signal") signal request_quit
-@warning_ignore("unused_signal") signal request_menu_scores
+@warning_ignore("unused_signal") signal request_menu_scoresrequest_menu_scores
 @warning_ignore("unused_signal") signal request_start_game
 @warning_ignore("unused_signal") signal request_dismiss_loss
 @warning_ignore("unused_signal") signal request_dismiss_highscores
