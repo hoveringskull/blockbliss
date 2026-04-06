@@ -21,9 +21,7 @@ func bind_services(high_scores: HighScores, gsh: GameStateHolder) -> void:
 	_high_scores = high_scores
 	_game_state_holder = gsh
 
-func bind_events() -> void:
-	Events.on_game_lost.connect(handle_game_lost)
-	
+func bind_events() -> void:	
 	dismiss_button.pressed.connect(dismiss_loss)
 	
 func handle_game_lost() -> void:

@@ -1,6 +1,7 @@
 class_name MenuOverlay extends Node
 
 signal on_dismiss_loss
+signal on_dismiss_highscores
 
 @export var main_menu: MainMenu
 @export var high_scores_menu: HighScoresMenu
@@ -23,8 +24,13 @@ func initialize(music: MusicPlayer,\
 	
 	main_menu.request_scores.connect(high_scores_menu.show_menu)
 	end_screen.request_dismiss_loss.connect(on_dismiss_loss.emit)
+	on_dismiss_highscores.connect(handle_dismiss_highscores)
 
 	update()
+	
+func handle_dismiss_highscores() -> void:
+	high_scores_menu.hide()
+	main_menu.show_menu()
 
 func update() -> void:
 	if _game_state_holder.game_state and _game_state_holder.game_state.status == GameState.GAME_STATUS.LOST:

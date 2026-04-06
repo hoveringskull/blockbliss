@@ -26,10 +26,6 @@ func bind_events() -> void:
 
 	quit_button.pressed.connect(on_press_quit)
 
-	Events.request_hide_menu.connect(hide_menu)
-	Events.request_dismiss_loss.connect(show_menu)
-	Events.request_dismiss_highscores.connect(show_menu)
-
 
 func on_press_start() -> void:
 	_sfx.request_sound(SFXPlayer.Key.SELECT)

@@ -4,7 +4,6 @@ class_name RootContext extends Node
 @export var game_scene_packed: PackedScene
 @export var music_player_packed: PackedScene
 @export var sfx_player_packed: PackedScene
-@export var camera_packed: PackedScene
 
 var _sfx: SFXPlayer
 var _music: MusicPlayer
@@ -23,7 +22,6 @@ func build_services() -> void:
 	add_child(_sfx)
 	_music = music_player_packed.instantiate() as MusicPlayer
 	add_child(_music)
-	add_child(camera_packed.instantiate())
 	_game_state_holder = GameStateHolder.new()
 	add_child(_game_state_holder)
 	

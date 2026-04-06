@@ -1,5 +1,7 @@
 class_name HighScoresMenu extends PanelContainer
 
+signal request_dismiss
+
 @export var back_button: Button
 @export var scores_parent: Control
 
@@ -21,9 +23,10 @@ func show_menu() -> void:
 	load_scores()
 	show()
 
+
 func handle_back_pressed() -> void:
 	visible = false
-	Events.request_dismiss_highscores.emit()
+	request_dismiss.emit()
 
 func load_scores() -> void:
 	for child: Node in scores_parent.get_children():

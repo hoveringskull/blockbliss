@@ -9,6 +9,7 @@ signal on_game_loss
 
 # PACKED SCENES
 @export var shape_library_packed: PackedScene
+@export var camera_packed: PackedScene
 
 
 var _game_controller: GameController
@@ -18,6 +19,7 @@ var _sfx: SFXPlayer
 var _music: MusicPlayer
 var _shape_lib: ShapeLibrary
 var _game_state_holder: GameStateHolder
+var _camera: GameCamera
 
 func build_services() -> void:
 	_game_controller = GameController.new()
@@ -28,6 +30,10 @@ func build_services() -> void:
 	add_child(_score_controller)
 	_shape_lib = shape_library_packed.instantiate() as ShapeLibrary
 	add_child(_shape_lib)
+	
+	_camera = camera_packed.instantiate()
+	add_child(_camera)
+	
 
 func bind_services(sfx: SFXPlayer, music: MusicPlayer, gsh: GameStateHolder) -> void:
 	_sfx = sfx
@@ -37,12 +43,13 @@ func bind_services(sfx: SFXPlayer, music: MusicPlayer, gsh: GameStateHolder) -> 
 	_game_controller.bind_services(_score_controller, _grid_controller, gsh, renderer, _sfx, _music)
 	_grid_controller.bind_services(_score_controller, gsh, _shape_lib, _sfx)
 	_score_controller.bind_services(gsh)
+	_camera.initialize(_grid_controller)
 	
 	_game_controller.on_game_loss.connect(on_game_loss.emit)
 	
 	renderer.bind_services(_grid_controller, _game_state_holder)
 	preview_renderer.bind_services(_grid_controller, _game_state_holder)
-	overlay.initialize(_game_state_holder)
+	overlay.initialize(_game_state_holder, _score_controller, _grid_controller)
 	
 
 func handle_start_new_game() -> void:

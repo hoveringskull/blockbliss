@@ -1,5 +1,8 @@
 class_name GridController extends Node
 
+signal on_new_next_shape
+signal on_row_clear
+
 var _score_controller: ScoreController
 var _game_state_holder: GameStateHolder
 var _shape_library: ShapeLibrary
@@ -94,7 +97,7 @@ func generate_new_active_tile_shape() -> void:
 	var shape: ShapeResource = _shape_library.get_random_shape() as ShapeResource
 	if shape:
 		state.next_active_shape = Shape.new(Vector2i(5, 0), shape)
-		Events.on_new_next_shape.emit()
+		on_new_next_shape.emit()
 
 func can_clear_row(row: int) -> bool:
 	var start_index: int = row * GameConstants.WIDTH
@@ -110,7 +113,7 @@ func check_and_clear_rows() -> void:
 
 func clear_row(row: int) -> void:
 	var old_row: Array[int] = state.grid.slice(row * GameConstants.WIDTH, (row + 1) * GameConstants.WIDTH + 1)
-	Events.on_row_clear.emit(row, old_row)
+	on_row_clear.emit(row, old_row)
 
 	# make all above rows fall by slicing the values in the removed row out, 
 	# then adding in a blank row at top

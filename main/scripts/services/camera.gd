@@ -1,14 +1,25 @@
-extends Camera2D
+class_name GameCamera extends Camera2D
+
+const MAX_SHAKE: float = 5.0
 
 var home_position: Vector2
 var current_shake: Tween
 
-const MAX_SHAKE: float = 5.0
+# TODO: this might be dumb to add as a dependency here
+var _grid_controller: GridController # optional
 
-func _ready() -> void:
+
+func initialize(grid_controller: GridController) -> void:
+	bind_services(grid_controller)
+
 	home_position = get_window().size / 2
 	position = home_position
-	Events.on_row_clear.connect(shake_screen)
+	
+	if _grid_controller:
+		_grid_controller.on_row_clear.connect(shake_screen)
+	
+func bind_services(grid_controller: GridController) -> void:
+	_grid_controller = grid_controller
 
 func shake_screen(_row: int, _values: Array[int]) -> void:
 	if not current_shake or not current_shake.is_running():

@@ -13,9 +13,6 @@ var _game_state_holder: GameStateHolder
 var game_state: GameState:
 	get: return _game_state_holder.game_state
 
-func _ready() -> void:
-	Events.on_row_clear.connect(generate_clear_particles)
-
 func bind_services(grid_controller: GridController, gsh: GameStateHolder) -> void:
 	_game_state_holder = gsh
 	_grid_controller = grid_controller
@@ -24,6 +21,8 @@ func initialize() -> void:
 	position = Vector2((get_window().size.x / 2.0) - (GameConstants.WIDTH * GameConstants.TILE_SIZE / 2.0), GameConstants.TILE_SIZE / 2.0)
 	rendered_tile_renderers.resize(GameConstants.TILE_COUNT)
 	draw_grid()
+	
+	_grid_controller.on_row_clear.connect(generate_clear_particles)
 	
 func clear_grid() -> void:
 	for child: Node in get_children():

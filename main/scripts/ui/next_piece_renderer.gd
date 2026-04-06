@@ -5,6 +5,7 @@ class_name NextPieceRenderer extends PanelContainer
 @export var tile_sprite: Texture2D
 
 var _game_state_holder: GameStateHolder
+var _grid_controller: GridController
 
 var game_state: GameState:
 	get:
@@ -15,15 +16,16 @@ const HEIGHT: int = 5
 const OFFSET: int = 2
 const FRAME_OFFSET: Vector2 = Vector2(16, 0)
 
-func initialize(gsh: GameStateHolder) -> void:
-	bind_services(gsh)
+func initialize(gsh: GameStateHolder, grid_controller: GridController) -> void:
+	bind_services(gsh, grid_controller)
 	bind_listeners()
 
-func bind_services(gsh: GameStateHolder) -> void:
+func bind_services(gsh: GameStateHolder, grid_controller: GridController) -> void:
 	_game_state_holder = gsh	
+	_grid_controller = grid_controller
 
 func bind_listeners() -> void:
-	Events.on_new_next_shape.connect(render_next_piece)
+	_grid_controller.on_new_next_shape.connect(render_next_piece)
 
 func render_next_piece() -> void:
 	clear()
