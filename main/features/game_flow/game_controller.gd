@@ -27,16 +27,6 @@ func bind_services(score_controller: ScoreController,\
 	_music = music
 	
 
-func initialize() -> void:
-	# set up initial conditions
-	state.active_time = 0
-	state.last_drop_time = 0
-	state.current_active_shape = null
-	state.next_active_shape = null
-	state.grid.resize(GameConstants.TILE_COUNT)
-	state.grid.fill(GameConstants.TILE.NONE)
-	
-
 func start() -> void:
 	_score_controller.reset_score()
 	state.status = GameState.GAME_STATUS.ACTIVE

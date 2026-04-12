@@ -56,7 +56,7 @@ func bind_services(sfx: SFXPlayer, music: MusicPlayer, gsh: GameStateHolder) -> 
 
 func handle_start_new_game() -> void:
 	_game_state_holder.game_state = GameState.new()
-	_game_controller.initialize()
+	_game_state_holder.game_state.initialize()
 	_game_controller.start()
 
 	renderer.initialize()

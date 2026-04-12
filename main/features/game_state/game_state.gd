@@ -23,3 +23,11 @@ var total_gravity: float:
 		if speed_up:
 			return gravity / difficulty_coefficient / GameConstants.TILE_DROP_SPEEDUP
 		return gravity / difficulty_coefficient
+		
+func initialize() -> void:
+	active_time = 0
+	last_drop_time = 0
+	current_active_shape = null
+	next_active_shape = null
+	grid.resize(GameConstants.TILE_COUNT)
+	grid.fill(GameConstants.TILE.NONE)

@@ -20,8 +20,7 @@ static func address_to_position(v2i: Vector2i) -> Vector2:
 static func tile_to_color(t: int) -> Color:
 	return Colors[t]
 
-
-static func get_address_below_index(index: int) -> int:
+static func get_index_below_index(index: int) -> int:
 	return index + GameConstants.WIDTH
 
 static func index_to_v2i(i: int) -> Vector2i:

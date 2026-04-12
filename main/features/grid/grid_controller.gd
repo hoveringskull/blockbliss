@@ -9,11 +9,9 @@ var _shape_library: ShapeLibrary
 var _sfx: SFXPlayer
 
 var state: GameState:
-	get: return _game_state_holder.game_state
+	get: return _game_state_holder.get_state()
 	
-func bind_services(game_state_holder: GameStateHolder,\
-		shape_library: ShapeLibrary,
-		sfx: SFXPlayer) -> void:
+func bind_services(game_state_holder: GameStateHolder, shape_library: ShapeLibrary, sfx: SFXPlayer) -> void:
 	_game_state_holder = game_state_holder
 	_shape_library = shape_library
 	_sfx = sfx
@@ -24,7 +22,7 @@ func move_active_blocks(direction: Vector2i) -> void:
 		state.last_slide_time = state.active_time
 
 func can_move_active_blocks(direction: Vector2i) -> bool:
-	if state.active_time < state.last_slide_time + GameConstants.SLIDE_TIME:
+	if state.active_time <= state.last_slide_time + GameConstants.SLIDE_TIME:
 		return false
 	if not state.current_active_shape or state.current_active_shape\
 		.get_tiles_with_rot_and_offset(state.current_active_shape.rotation, state.current_active_shape.offset + direction)\
@@ -56,7 +54,7 @@ func is_touching_ground(tile: Vector2i) -> bool:
 	if tile.y >= GameConstants.HEIGHT - 1:
 		return true
 	var tile_index: int = Grid.v2i_to_index(tile)
-	var below_index: int = Grid.get_address_below_index(tile_index)
+	var below_index: int = Grid.get_index_below_index(tile_index)
 	# return true if there's a tile under it
 	return state.grid[below_index] != 0
 	

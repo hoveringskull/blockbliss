@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-04-06" name="report_1" tests="1" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="grid_renderer_test" package="test/features/grid" timestamp="2026-04-06T13:02:15" hostname="localhost" tests="1" failures="0" errors="0" skipped="0" flaky="0" time="0.188">
+		<testcase name="test_draw_grid" classname="grid_renderer_test" time="0.174">
+		</testcase>
+	</testsuite>
+</testsuites>

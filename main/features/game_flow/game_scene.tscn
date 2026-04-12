@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://feoi4ko1a4xj" path="res://features/game_flow/game_context.gd" id="1_w5aja"]
 [ext_resource type="PackedScene" uid="uid://1e8upbix8tdr" path="res://features/shapes/shape_library.tscn" id="2_y3j0m"]
-[ext_resource type="Script" uid="uid://btrqi4lnxybta" path="res://features/grid/grid_renderer.gd" id="2_ycayy"]
 [ext_resource type="Script" uid="uid://d1vlp30sh7kh3" path="res://features/grid/preview_renderer.gd" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://day4swvj338re" path="res://features/vfx/camera.tscn" id="3_rurhu"]
 [ext_resource type="PackedScene" uid="uid://7p2ehmwmivvg" path="res://features/game_flow/overlay_game.tscn" id="4_bw6k5"]
+[ext_resource type="PackedScene" uid="uid://damlgfwiume0l" path="res://features/grid/renderer.tscn" id="4_nrdmr"]
 
 [node name="GameScene" type="Node2D" node_paths=PackedStringArray("renderer", "preview_renderer", "overlay")]
 script = ExtResource("1_w5aja")
@@ -15,8 +15,7 @@ overlay = NodePath("CanvasLayer/overlay")
 shape_library_packed = ExtResource("2_y3j0m")
 camera_packed = ExtResource("3_rurhu")
 
-[node name="renderer" type="Node2D" parent="."]
-script = ExtResource("2_ycayy")
+[node name="renderer" parent="." instance=ExtResource("4_nrdmr")]
 
 [node name="preview_renderer" type="Node2D" parent="."]
 script = ExtResource("3_bw6k5")

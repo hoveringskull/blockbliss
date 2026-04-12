@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [debug]
 
 gdscript/warnings/untyped_declaration=1
-gdscript/warnings/inferred_declaration=1
 gdscript/warnings/unsafe_property_access=1
 gdscript/warnings/unsafe_method_access=1
 gdscript/warnings/unsafe_cast=1
@@ -31,6 +30,14 @@ window/size/resizable=false
 [dotnet]
 
 project/assembly_name="Tetgd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
+[gdunit4]
+
+settings/common/update_notification_enabled=false
 
 [input]
 
